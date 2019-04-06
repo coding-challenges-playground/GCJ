@@ -35,7 +35,7 @@ for(let i=1;i<inputs.length;i++){
     combinations.forEach(array=>{
       if(checkIfContainsFour(array[0])===false && checkIfContainsFour(array[1])===false){
         if(outputCount===1){
-            console.log(`case ${i}: ${array[0]} ${array[1]}`);
+            console.log(`case #${i}: ${array[0]} ${array[1]}`);
             outputCount++;
         }
       }

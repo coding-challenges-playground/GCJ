@@ -21,13 +21,26 @@ function checkIfContainsFour(number){
   return isFound;
 }
 
-let combinations=getCombinations(44);
-combinations.forEach(array=>{
-  if(checkIfContainsFour(array[0])===false && checkIfContainsFour(array[1])===false){
-    console.log(array); 
-  }
-  else{
-    return "combination cannot be found";
-  }
-})
+const fs=require('fs');
+let text=fs.readFileSync('./input.txt');
+let inputs=text.toString().split("\n");
+for(let i=0;i<inputs.length;i++){
+    inputs[i]=inputs[i].trim();  
+}
+let inputCount=inputs[0];
+
+for(let i=1;i<inputs.length;i++){
+    let combinations=getCombinations(inputs[i]);
+    var outputCount=1;
+    combinations.forEach(array=>{
+      if(checkIfContainsFour(array[0])===false && checkIfContainsFour(array[1])===false){
+        if(outputCount===1){
+            console.log(array);
+            outputCount++;
+        }
+      }
+      
+    })
+}
+
 
